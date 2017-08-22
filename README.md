@@ -1,24 +1,15 @@
-# README
+## Pahlawan Bangsa
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Simple web app using Ruby on Rails to develop Indonesian Heroes with CRUD and Authentication
 
-Things you may want to cover:
 
-* Ruby version
+### Feature
+- Register User
+- Login User
+- Insert Pahlawan
+- Show Pahlawan
+- Edit Pahlawan
+- Update Pahlawan
+- Delete Pahlawan
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+I hope I can continue this project to be good project. :)
