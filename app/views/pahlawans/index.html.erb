@@ -1,0 +1,98 @@
+<style>
+h2 {
+  margin-bottom: 50px;
+  background-color: #21817f;
+  padding: 10px;
+  border: 1px solid #a3a3a3;
+  border-radius: 10px;
+  color: #fff;
+}
+
+table {
+  border: 1px solid #a3a3a3;
+  border-radius: 20px;
+}
+
+table thead th {
+  padding: 5px;
+  background-color: #21817f;
+  color: #fff;
+}
+
+.pahlawan-status {
+  margin-bottom: 50px;
+}
+</style>
+<div class="col-md-12">
+  
+  <h2 class="text-center">Pahlawan Bangsa</h2>
+
+  <div class="col-md-12 pahlawan-status">
+    <% if current_user %>
+      <div class="pull-left">
+        <p>Halo, <%= current_user.fullname %></p>
+      </div>
+      <div class="pull-right">
+        <%= link_to "Log out", logout_path(current_user), method: :delete, class: 'btn btn-sm btn-danger' %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="col-md-5">
+    <div class="panel panel-primary">
+      <div class="panel-header"><h3 class="text-center">Input Pahlawan</h3></div>
+      <div class="panel-body">
+        <%= form_for @pahlawan do |f| %>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control input-sm' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :place %>
+            <%= f.text_field :place, class: 'form-control input-sm' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :birth %>
+            <%= f.text_field :birth, class: 'form-control input-sm' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :description %>
+            <%= f.text_area :description, class: 'form-control input-sm' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :photo %>
+            <%= f.text_field :photo, class: 'form-control input-sm' %>
+          </div>
+          <%= f.submit "Add Pahlawan", class: 'btn btn-sm btn-success' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-7">
+    <table class="table table-striped table-hover">
+      <thead>
+        <th class="text-center">No.</th>
+        <th class="text-center">Image</th>
+        <th class="text-center">Name</th>
+        <th class="text-center">Actions</th>
+      </thead>
+      <tbody>
+        <% @pahlawans.each do |pahlawan| %>
+        <tr>
+          <td class="text-center"><%= pahlawan.id %></td>
+          <td class="text-center"><img src="<%= pahlawan.photo %>" width=80 height=80 alt="<%= pahlawan.name %>" />
+          </td>
+          <td><%= pahlawan.name %></td>
+          <td class="text-center">
+            <%= link_to raw("<i class='glyphicon glyphicon-eye-open'></i>"), pahlawan_path(pahlawan), class: 'btn btn-sm btn-primary' %> 
+            <%= link_to raw("<i class='glyphicon glyphicon-pencil'></i>"), edit_pahlawan_path(pahlawan), class: 'btn btn-sm btn-warning' %>
+            <%= link_to raw("<i class='glyphicon glyphicon-trash'></i>"), pahlawan_path(pahlawan), method: :delete, class: 'btn btn-sm btn-danger' %>
+          </td>
+          </td>
+          </td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

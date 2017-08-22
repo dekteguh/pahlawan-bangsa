@@ -1,0 +1,14 @@
+<style>
+  .App {
+    margin-top: 70px;
+    display: flex;
+    justify-content: center;
+  }
+</style>
+
+<div class="App">
+  <h2>You have an account?</h2>
+  <p><%= link_to "Log In", login_path, class: 'btn btn-sm btn-primary' %></p>
+  <h2>Please register here.</h2>
+  <p><%= link_to "Register", register_path, class: 'btn btn-sm btn-success' %></p>
+</div>

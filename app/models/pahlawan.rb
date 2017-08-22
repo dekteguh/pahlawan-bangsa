@@ -1,0 +1,2 @@
+class Pahlawan < ApplicationRecord
+end
